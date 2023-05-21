@@ -27,14 +27,14 @@ async function run() {
 
     const toyCollection = client.db("toyDB").collection("toys");
 
-    // show the all data fetch
+    // all data show the ui display
     app.get("/toys", async (req, res) => {
       const cursor = toyCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
 
-    // single id show the details
+    // single data information
     app.get("/toys/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
